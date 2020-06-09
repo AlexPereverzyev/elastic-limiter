@@ -1,0 +1,11 @@
+{
+  "name": "elastic-limiter",
+  "version": "0.1.0",
+  "description": "Adaptive rate limiter",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Alex Pereverzyev",
+  "license": "MIT"
+}
