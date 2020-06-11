@@ -1,8 +1,7 @@
 const http = require('http')
 const port = 7777
 
-const ElasticCounter = require('.').ElasticCounter
-const counter = new ElasticCounter()
+const counter = require('.').ElasticCounter.current()
 
 const server = http.createServer((req, res) => {
     setTimeout(() => {
