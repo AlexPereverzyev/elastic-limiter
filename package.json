@@ -4,9 +4,10 @@
   "description": "Adaptive rate limiter",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
     "test": "nyc mocha",
-    "report": "nyc mocha && nyc report --reporter=text-lcov | coveralls"
+    "report": "nyc mocha && nyc report --reporter=text-lcov | coveralls",
+    "start": "node server.js",
+    "express": "node lib/express.js"
   },
   "author": "Alex Pereverzyev",
   "license": "MIT",
