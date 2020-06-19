@@ -8,7 +8,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/lib/koa.js"
+            "program": "${workspaceFolder}/lib/axios.js"
         }
     ]
 }

@@ -7,6 +7,7 @@
     "test": "nyc mocha",
     "report": "nyc mocha && nyc report --reporter=text-lcov | coveralls",
     "start": "node server.js",
+    "axios": "node lib/axios.js",
     "koa": "node lib/koa.js",
     "express": "node lib/express.js"
   },
@@ -30,6 +31,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "axios": "^0.19.2",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.1.0",
