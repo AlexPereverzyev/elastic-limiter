@@ -6,7 +6,6 @@
   "scripts": {
     "test": "nyc mocha",
     "report": "nyc mocha && nyc report --reporter=text-lcov | coveralls",
-    "start": "node server.js",
     "axios": "node lib/axios.js",
     "koa": "node lib/koa.js",
     "express": "node lib/express.js"
@@ -24,8 +23,10 @@
   "keywords": [
     "throttle",
     "limiter",
+    "circuit breaker",
     "qps",
     "node",
+    "axios",
     "koa",
     "express"
   ],
