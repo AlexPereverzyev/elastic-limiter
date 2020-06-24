@@ -6,9 +6,9 @@
   "scripts": {
     "test": "nyc mocha",
     "report": "nyc mocha && nyc report --reporter=text-lcov | coveralls",
-    "axios": "node lib/axios.js",
-    "koa": "node lib/koa.js",
-    "express": "node lib/express.js"
+    "koa": "node test/run/koa.js",
+    "express": "node test/run/express.js",
+    "axios": "node test/run/axios.js"
   },
   "author": "Alex Pereverzyev",
   "license": "MIT",
