@@ -6,11 +6,11 @@ const axios = require('axios');
 (async function () {
 
     const elasticAxios = elastic(axios, ctx => ctx.url, {
-        upper: 10,
+        upper: 1,
         lower: 1,
-        interval: 1,
+        interval: '00:01:00',
         breaksAfter: 1,
-        breakDuration: 10 * 1000,
+        breakDuration: '00:01:00',
         avoidLatency: 100,
         avoidErrors: true,
         avoidDisconnects: true,
@@ -19,11 +19,11 @@ const axios = require('axios');
     for (let i = 0; i < 100; i++)
         try {
             await elasticAxios.get('http://localhost:9999/?l=1&lr=1')
-        } catch {
+        } catch (e) {
             ec++
         }
 
-    console.info('counters:\n', require('../..').current().toString())
+    console.info('counters:\n', require('../..').useStore().toString())
     console.info('errors:\n', ec.toString())
 
 })()
