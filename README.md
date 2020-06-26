@@ -143,11 +143,11 @@ class MyCustomStore extends CountersStore {
         super()
     }
 
-    get() {
+    get(key) {
         // todo: implement
     }
 
-    set() {
+    set(key, counter) { {
         // todo: implement
     }
 }
