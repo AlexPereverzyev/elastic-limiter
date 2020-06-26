@@ -6,7 +6,7 @@ const axios = require('axios');
 (async function () {
 
     const elasticAxios = elastic(axios, ctx => ctx.url, {
-        upper: 1,
+        upper: 10,
         lower: 1,
         interval: '00:01:00',
         breaksAfter: 1,
