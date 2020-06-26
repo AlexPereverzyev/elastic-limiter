@@ -4,7 +4,7 @@
 # elastic-limiter
 
 [![npm](https://img.shields.io/npm/v/elastic-limiter.svg?style=flat-square)](https://www.npmjs.org/package/elastic-limiter)
-[![Coverage Status](https://coveralls.io/repos/github/AlexPereverzyev/fanout/badge.svg?branch=master)](https://coveralls.io/github/AlexPereverzyev/elastic-limiter?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/AlexPereverzyev/elastic-limiter/badge.svg?branch=master)](https://coveralls.io/github/AlexPereverzyev/elastic-limiter?branch=master)
 
 Elastic-limiter is an adaptive rate limiter and circuit breaker middleware for Koa, Express and Axios in one package!
 
