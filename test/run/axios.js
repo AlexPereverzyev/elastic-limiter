@@ -8,6 +8,7 @@ const axios = require('axios');
     const elasticAxios = elastic(axios, ctx => ctx.url, {
         upper: 10,
         lower: 1,
+        interval: 1,
         breaksAfter: 1,
         breakDuration: 10 * 1000,
         avoidLatency: 100,

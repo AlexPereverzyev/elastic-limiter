@@ -11,17 +11,18 @@ router.get("/", elastic(
     ctx => ctx.req.url, {
     upper: 10,
     lower: 1,
+    interval: '00:00:01',
     breaksAfter: 1,
     breakDuration: 10,
     avoidLatency: 100,
     avoidErrors: true,
     avoidDisconnects: true,
-    setHeaders: true
+    verbose: true
 }), async (ctx, next) => {
     await new Promise(resolve => {
         setTimeout(() => {
             ctx.response.status = 200
-            ctx.body = 'OK'
+            ctx.body = 'OK\n'
             resolve()
         }, 100)
     })
@@ -33,5 +34,5 @@ router.get("/c", (ctx, next) => {
 
 app.use(router.routes())
 
-app.listen(port);
+const server = app.listen(port);
 console.log(`HTTP server is running at ${port}`)

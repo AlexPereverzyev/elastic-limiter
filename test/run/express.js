@@ -9,15 +9,16 @@ app.get("/", elastic(
     ctx => ctx.req.url, {
     upper: 10,
     lower: 1,
+    interval: '00:00:01',
     breaksAfter: 1,
     breakDuration: 10,
     avoidLatency: 100,
     avoidErrors: true,
     avoidDisconnects: true,
-    setHeaders: true
+    verbose: true
 }), (req, res) => {
     setTimeout(() => {
-        res.status(200).end('OK')
+        res.status(200).end('OK\n')
     }, 100)
 });
 
@@ -25,5 +26,5 @@ app.get("/c", (req, res) => {
     res.end(counters.toString())
 });
 
-app.listen(port);
+const server = app.listen(port);
 console.log(`HTTP server is running at ${port}`)
