@@ -3,7 +3,7 @@
 const ElasticCounter = require('./lib/elastic_counter')
 const InMemoryStore = require('./lib/inmemory_store')
 const middleware = require('./lib/middleware')
-const useStore = require('./lib/counters_store')
+const { useStore } = require('./lib/counters_store')
 
 useStore(new InMemoryStore())
 
