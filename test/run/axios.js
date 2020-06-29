@@ -23,7 +23,6 @@ const axios = require('axios');
             ec++
         }
 
-    console.info('counters:\n', require('../..').useStore().toString())
     console.info('errors:\n', ec.toString())
 
 })()
