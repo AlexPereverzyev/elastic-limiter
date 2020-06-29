@@ -1,6 +1,6 @@
 "use strict"
 
-const elastic = require('../..').axios
+const elastic = require('../').axios
 const axios = require('axios');
 
 (async function () {

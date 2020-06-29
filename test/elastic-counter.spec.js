@@ -3,7 +3,7 @@ const { expect } = require('chai').use(require('chai-as-promised'))
 const { ElasticCounter, seconds } = require('../')
 
 describe('elastic-counter', () => {
-    it('should use defaults when constructor options are not provided', async () => {
+    it('should use defaults when constructor options are not provided', () => {
         const counter = new ElasticCounter()
 
         expect(counter).has.keys
@@ -21,7 +21,7 @@ describe('elastic-counter', () => {
         expect(counter.slice).is.greaterThan(0)
     })
 
-    it('should use constructor options when provided', async () => {
+    it('should use constructor options when provided', () => {
         const counter = new ElasticCounter({
             upper: 10,
             lower: 1,
@@ -47,7 +47,7 @@ describe('elastic-counter', () => {
         expect(counter.slice).is.greaterThan(0)
     })
 
-    it('should set upper and lower bounds when limit option provided', async () => {
+    it('should set upper and lower bounds when limit option provided', () => {
         const counter = new ElasticCounter({ limit: 1 })
 
         expect(counter.limit).is.equal(counter.upper)
@@ -55,14 +55,14 @@ describe('elastic-counter', () => {
         expect(counter.lower).is.equal(1)
     })
 
-    it('should parse intervals when interval strings options provided', async () => {
+    it('should parse intervals when interval strings options provided', () => {
         const counter = new ElasticCounter({ limit: 1, interval: '00:01:00', breakDuration: '00:01:10' })
 
         expect(counter.interval).is.equal(60)
         expect(counter.breakDuration).is.equal(70)
     })
 
-    it('should increment counter when ticking', async () => {
+    it('should increment counter when ticking', () => {
         const counter = new ElasticCounter({ limit: 10 })
 
         counter.tick()
@@ -77,7 +77,7 @@ describe('elastic-counter', () => {
         expect(counter.recoversAfter).is.equal(0)
     })
 
-    it('should use tick time slice when provided', async () => {
+    it('should use tick time slice when provided', () => {
         const counter = new ElasticCounter({ limit: 10 })
 
         const now = 1e12
@@ -89,7 +89,7 @@ describe('elastic-counter', () => {
         expect(counter.recoversAfter).is.equal(0)
     })
 
-    it('should be over when upper limit exceeded', async () => {
+    it('should be over when upper limit exceeded', () => {
         const counter = new ElasticCounter({ limit: 2 })
         const now = 1e12
 
@@ -102,7 +102,7 @@ describe('elastic-counter', () => {
         expect(counter.isOver()).is.true
     })
 
-    it('should reset state when new time slice starts', async () => {
+    it('should reset state when new time slice starts', () => {
         const counter = new ElasticCounter({ limit: 10 })
         const now = 1e12
 
@@ -117,7 +117,7 @@ describe('elastic-counter', () => {
         expect(counter.isOver()).is.false
     })
 
-    it('should open when breaks count exceeded', async () => {
+    it('should open when breaks count exceeded', () => {
         const counter = new ElasticCounter({ limit: 10, breaksAfter: 1, breakDuration: 60 })
 
         counter.tick()
@@ -130,7 +130,7 @@ describe('elastic-counter', () => {
         expect(counter.isOpen()).is.true
     })
 
-    it('should close when new time slice exceeds break duration', async () => {
+    it('should close when new time slice exceeds break duration', () => {
         const counter = new ElasticCounter({ limit: 10, breaksAfter: 1, breakDuration: 60 })
         const now = 1e12
 
@@ -145,7 +145,7 @@ describe('elastic-counter', () => {
         expect(counter.isOpen()).is.false
     })
 
-    it('should reset circuit when rewarded', async () => {
+    it('should reset circuit when rewarded', () => {
         const counter = new ElasticCounter({ limit: 10, breaksAfter: 10, breakDuration: 60 })
 
         counter.tick()
@@ -159,7 +159,7 @@ describe('elastic-counter', () => {
         expect(counter.isOpen()).is.false
     })
 
-    it('should reset circuit when unbroken', async () => {
+    it('should reset circuit when unbroken', () => {
         const counter = new ElasticCounter({ limit: 10, breaksAfter: 10, breakDuration: 60 })
 
         counter.tick()
@@ -173,7 +173,7 @@ describe('elastic-counter', () => {
         expect(counter.isOpen()).is.false
     })
 
-    it('should not close circuit when rewarded', async () => {
+    it('should not close circuit when rewarded', () => {
         const counter = new ElasticCounter({ limit: 10, breaksAfter: 1, breakDuration: 60 })
 
         counter.tick()
@@ -187,7 +187,7 @@ describe('elastic-counter', () => {
         expect(counter.isOpen()).is.true
     })
 
-    it('should become over when penalized', async () => {
+    it('should become over when penalized', () => {
         const counter = new ElasticCounter({ upper: 5, lower: 1, penalty: -1 })
 
         counter.tick()
@@ -203,7 +203,7 @@ describe('elastic-counter', () => {
         expect(counter.isOver()).is.true
     })
 
-    it('should restore limit when rewarded', async () => {
+    it('should restore limit when rewarded', () => {
         const counter = new ElasticCounter({ upper: 5, lower: 1, penalty: -1, reward: 1 })
 
         counter.tick()
@@ -228,7 +228,7 @@ describe('elastic-counter', () => {
 
 
 describe('seconds', () => {
-    it('should calculate msec delta when start time provided', async () => {
+    it('should calculate msec delta when start time provided', () => {
         const start = process.hrtime()
         const delta = seconds.msecond(start)
 

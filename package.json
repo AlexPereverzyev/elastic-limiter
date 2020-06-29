@@ -6,9 +6,9 @@
   "scripts": {
     "test": "nyc mocha",
     "report": "nyc mocha && nyc report --reporter=text-lcov | coveralls",
-    "koa": "node test/run/koa.js",
-    "express": "node test/run/express.js",
-    "axios": "node test/run/axios.js"
+    "koa": "node run/koa.js",
+    "express": "node run/express.js",
+    "axios": "node run/axios.js"
   },
   "author": "Alex Pereverzyev",
   "license": "MIT",
@@ -41,6 +41,8 @@
     "koa-router": "^9.0.1",
     "mocha": "^7.1.2",
     "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^15.0.1"
+    "nyc": "^15.0.1",
+    "simdummy": "^0.1.5",
+    "sinon": "^9.0.2"
   }
 }

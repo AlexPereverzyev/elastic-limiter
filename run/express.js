@@ -1,6 +1,6 @@
 "use strict"
 
-const elastic = require('../..').express
+const elastic = require('../').express
 const express = require("express");
 const app = express();
 const port = 7777
@@ -20,10 +20,6 @@ app.get("/", elastic(
     setTimeout(() => {
         res.status(200).end('OK\n')
     }, 100)
-});
-
-app.get("/c", (req, res) => {
-    res.end(counters.toString())
 });
 
 const server = app.listen(port);

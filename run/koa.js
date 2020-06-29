@@ -1,6 +1,6 @@
 "use strict"
 
-const elastic = require('../..').koa
+const elastic = require('../').koa
 const Koa = require('koa');
 const Router = require('koa-router');
 const app = new Koa();
@@ -26,10 +26,6 @@ router.get("/", elastic(
             resolve()
         }, 100)
     })
-});
-
-router.get("/c", (ctx, next) => {
-    ctx.body = counters.toString()
 });
 
 app.use(router.routes())
