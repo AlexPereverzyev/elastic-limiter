@@ -4,7 +4,6 @@ const elastic = require('../').axios
 const axios = require('axios');
 
 (async function () {
-
     const elasticAxios = elastic(axios, ctx => ctx.url, {
         upper: 10,
         lower: 1,
@@ -24,5 +23,4 @@ const axios = require('axios');
         }
 
     console.info('errors:\n', ec.toString())
-
 })()

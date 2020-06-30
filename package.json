@@ -1,7 +1,7 @@
 {
   "name": "elastic-limiter",
   "version": "0.1.0",
-  "description": "Adaptive rate limiter and circuit breaker",
+  "description": "Adaptive rate limiter and circuit breaker middleware",
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha",
