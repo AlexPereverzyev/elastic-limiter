@@ -201,7 +201,9 @@ Each middleware function has the following arguments:
 
 ## Extensibility
 
-To replace counters storage (for example, with Redis backend) all is needed is to pass storage instance to _useStore_ call:
+By default, elastic-limiter uses the most efficient simple in-memory store to persist counters.
+
+To replace counters store all is needed is to pass store instance to _useStore_ call, however please note, that does not provide atomic increments/decrements or any other means to handle shared state properly.
 
 ```
 const { useStore, CountersStore } = require('elastic-limiter')
@@ -224,4 +226,4 @@ class MyCustomStore extends CountersStore {
 useStore(new MyCustomStore())
 ```
 
-Note, by default, in memory store is used.
+
