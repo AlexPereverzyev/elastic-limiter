@@ -124,6 +124,7 @@ describe('middleware', () => {
             const test = setupTest()
             test.options.verbose = true
             test.counterStub.upper = 10
+            test.counterStub.limit = 10
             test.counterStub.count = 1
             test.counterStub.slice = 1e12
 
@@ -145,6 +146,7 @@ describe('middleware', () => {
             const test = setupTest()
             test.options.verbose = true
             test.counterStub.upper = 10
+            test.counterStub.limit = 10
             test.counterStub.count = 11
             test.counterStub.slice = 1e12
             test.counterStub.isOver.returns(true)
@@ -167,6 +169,7 @@ describe('middleware', () => {
             const test = setupTest()
             test.options.verbose = true
             test.counterStub.upper = 10
+            test.counterStub.limit = 10
             test.counterStub.count = 11
             test.counterStub.slice = 1e12
             test.counterStub.isOpen.returns(true)
@@ -332,6 +335,7 @@ describe('middleware', () => {
             const test = setupTest()
             test.options.verbose = true
             test.counterStub.upper = 10
+            test.counterStub.limit = 10
             test.counterStub.count = 1
             test.counterStub.slice = 1e12
 
@@ -353,6 +357,7 @@ describe('middleware', () => {
             const test = setupTest()
             test.options.verbose = true
             test.counterStub.upper = 10
+            test.counterStub.limit = 10
             test.counterStub.count = 11
             test.counterStub.slice = 1e12
             test.counterStub.isOver.returns(true)
@@ -375,6 +380,7 @@ describe('middleware', () => {
             const test = setupTest()
             test.options.verbose = true
             test.counterStub.upper = 10
+            test.counterStub.limit = 10
             test.counterStub.count = 11
             test.counterStub.slice = 1e12
             test.counterStub.isOpen.returns(true)

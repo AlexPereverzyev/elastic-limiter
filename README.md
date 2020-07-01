@@ -186,9 +186,11 @@ Each middleware function has the following arguments:
 - `axiosInstance` - Axios instance, only applicable to Axios middleware, not available for Koa or Express (see examples above)
 - `key` - each counter is identified by key, thus the argument is __required__. It can be string or function, in case of later, context with `req` and `res` will be passed as the only argument to the function
 - `options` - object representing optional configuration properties:
-    - `upper` or `limit` - sets the upper QPS limit (normally it's max allowed QPS), request above the limit will result in response with 429 status, in case of Axios, exception with `retryAfter` property will be thrown instead, default 100
-    - `lower` - sets the lower QPS limit, applicable when at least one of `avoidLatency`, `avoidErrors` or `avoidDisconnects` options are enabled, default - `upper` or `limit`
-    - `interval` - time string or number of seconds defining time frame to which the limits are applied, default 1 sec 
+    - `upper` or `limit` - sets the upper rate limit (normally it's max allowed rate), request above the limit will result in response with 429 status, in case of Axios, exception with `retryAfter` property will be thrown instead, default 100
+    - `lower` - sets the lower rate limit, applicable when at least one of `avoidLatency`, `avoidErrors` or `avoidDisconnects` options are enabled, default - `upper` or `limit`
+    - `interval` - time string or number of seconds defining time frame to which the limits are applied, default 1 sec
+    - `rewardAmt` - fraction added to the current rate limit each time counter is rewarded for performance, default is 0.1, current rate limit can not be bigger than `upper` limit
+    - `penaltyAmt` - fraction substracted from the current rate limit each time counter is penalized for performance, default is -0.2, current rate limit can not be smaller than `lower` limit
     - `breaksAfter` - sets the number of failures to open the circuit and respond with 503 for `breakDuration` sec, in case of Axios, exception with `retryAfter` property will be thrown instead. The counter is reset each time successfull response is received
     - `breakDuration` - time string or number of seconds for circuit to remain open, default 1 sec
     - `avoidLatency` - number of milliseconds (fractions allowed), reduce upper rate limit when response takes longer than specified, not set by default (0)
